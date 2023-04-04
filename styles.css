@@ -1,10 +1,27 @@
-.container{
+.container {
     height: 100vh;
-  
-    background-color: black;
+
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
-.images{
+body {
+
+    background: url("./img/dawn background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.images {
     width: 100%;
     height: auto;
 }
+
+.images:hover {
+    transform: translate3D(0,-1px,0) scale(1.03); /* move up slightly and zoom in */
+    box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+    transition: all .4s ease; /* zoom in */
+    cursor: pointer;
+  }
