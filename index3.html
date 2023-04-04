@@ -100,16 +100,7 @@
                 });
 */
                 for (let index = 1; index < 5; index++) {
-                    $.ajax({
-                        url: 'C:\Users\kelvin\Documents\GitHub\Dawn of war builds\img\broodmother_1.png',
-                        type: 'HEAD',
-                        success: function () {
-                            //arquivo existe
-                        },
-                        error: function () {
-                            //arquivo não existe
-                        },
-                    });
+                
                     selectedImages.each(function () {
                         selectedImagesHtml += '<img class"rounded image" src="./img/' +
                             $(this).text().toLowerCase() + "_" + index +
