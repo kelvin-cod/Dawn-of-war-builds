@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dawn of war builds</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container flex-wrap d-flex align-items-center justify-content-center ">
+        <div class="text-center mt-4 mb-3">
+            <h2>DAWN OF WAR BUILDS</h2>
+        </div>
+        <div class="row card-container d-flex align-items-center justify-content-center ">
+            <div id="card-container ">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+</script>
+
+<script>
+    var cardsData = [{
+            id: 1,
+            name: "Anti-Mage",
+            image: "https://static.wikia.nocookie.net/dota2_gamepedia/images/8/8e/Anti-Mage_icon.png/revision/latest?cb=20200916215957",
+            favorite: false
+        },
+        {
+            id: 2,
+            name: "Invoker",
+            image: "https://static.wikia.nocookie.net/dota2_gamepedia/images/0/00/Invoker_icon.png/revision/latest?cb=20160411220849",
+            favorite: true
+        },
+        {
+            id: 3,
+            name: "Juggernaut",
+            image: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/juggernaut_sb.png",
+            favorite: false
+        },
+        {
+            id: 4,
+            name: "Crystal Maiden",
+            image: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/crystal_maiden_sb.png",
+            favorite: true
+        },
+        {
+            id: 5,
+            name: "Lion",
+            image: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/lion_sb.png",
+            favorite: false
+        },
+        {
+            id: 6,
+            name: "Pudge",
+            image: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/pudge_sb.png",
+            favorite: false
+        },
+        {
+            id: 7,
+            name: "Mirana",
+            image: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/mirana_sb.png",
+            favorite: true
+        },
+        {
+            id: 8,
+            name: "Sniper",
+            image: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/sniper_sb.png",
+            favorite: false
+        },
+        {
+            id: 9,
+            name: "Bane",
+            image: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/bane_sb.png",
+            favorite: false
+        },
+        {
+            id: 10,
+            name: "Earthshaker",
+            image: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/earthshaker_sb.png",
+            favorite: true
+        }
+    ];
+
+    function createCards() {
+        // Obtenha o container de cards do HTML
+        const $cardContainer = $('.card-container');
+
+        // Percorra o array de dados de cards e crie um card para cada item
+        $.each(cardsData, function (index, cardData) {
+            // Crie os elementos HTML para o card
+            const $cardCol = $('<div>').addClass('col-lg-3 col-md-3 col-sm-1 card-flip ');
+            const $cardFlip = $('<div>').addClass('body-card ');
+            const $cardFront = $('<div>').addClass('card-front imgContainer');
+            const $cardImg = $('<img>').addClass('card-img-top ').attr('src', cardData.image);
+            const $cardBody = $('<div>').addClass('card-body');
+            const $cardTitle = $('<h4>').addClass('card-title text-center mt-2').text(cardData.name);
+            const $cardText = $('<p>').addClass('card-text').text(`Favorite: ${cardData.favorite}`);
+
+            const $cardBack = $('<div>').addClass(
+                'card-back content text-white '
+            );
+            const $cardBackDiv = $('<div>').addClass(
+                'd-flex flex-column align-items-center justify-content-center');
+            const $cardBackTitle = $('<h5>').addClass('card-back-title text-white').text(cardData.name);
+            const $cardBackText = $('<p>').addClass('card-back-text').text(`Lorem ipsum dolor sit amet`);
+
+            $cardBackDiv.append($cardBackTitle, $cardBackText);
+            // Adicione os elementos HTML aos seus pais apropriados
+            $cardBody.append($cardTitle, $cardText);
+            $cardFront.append($cardImg, $cardBody);
+            $cardBack.append($cardBackDiv);
+            $cardFlip.append($cardFront, $cardBack);
+            $cardCol.append($cardFlip);
+            $cardContainer.append($cardCol);
+
+
+        });
+    }
+
+
+    function testeon() {
+        const cards = document.querySelectorAll('.body-card');
+
+      
+
+        cards.forEach((card) =>
+     
+            card.addEventListener('click', (event) => {
+                console.log(2)
+                console.log(event.currentTarget);
+            })
+        );
+
+       
+    }
+
+    $(document).ready(createCards, testeon);
+</script>
+
+</html>

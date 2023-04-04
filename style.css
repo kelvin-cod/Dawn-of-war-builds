@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Reseting */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../../Downloads/dawn background.png");
+ 
+}
+
+.container {
+  transform-style: preserve-3d;
+  background-color: #ffffff;
+}
+
+.container .card-flip {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.container .card-flip .body-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: 0.9s ease;
+}
+
+
+
+.container .card-flip .body-card .imgContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.container2 .card-flip2 .body2 .imgContainer2 img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .card-flip .body-card .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  backface-visibility: hidden;
+
+  transform: rotateY(180deg);
+}
+
+/*   transform-style: preserve-3d;
+.container .card-flip:hover .body {
+  transform: rotateY(180deg);
+}
+*/
+
+.container .card-flip:hover .body-card {
+  transform: rotateY(180deg);
+}
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+.container .card-flip .body-card .content div {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: linear-gradient(45deg, #020202, #57ff2d);
+  transform: translateZ(100px);
+}
+
+.container .card-flip .body-card .content div h4 {
+  letter-spacing: 1px;
+}
+
