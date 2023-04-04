@@ -92,21 +92,21 @@
                 var selectedImages = $('#example-multiselect option:selected');
                 var selectedImagesHtml = ''; // $(this).val() + "_" +
 
-                /*
+               
                 selectedImages.each(function () {
                     selectedImagesHtml += '<img class"rounded" src="./img/' +
                         $(this).text().toLowerCase() + "_1" +
                         '.png" alt="' + $(this).text() + '"> ';
                 });
-*/
-                for (let index = 1; index < 5; index++) {
+
+               /*  for (let index = 1; index < 5; index++) {
                 
                     selectedImages.each(function () {
                         selectedImagesHtml += '<img class"rounded image" src="./img/' +
                             $(this).text().toLowerCase() + "_" + index +
                             '.png" alt="' + $(this).text() + '"> ';
                     });
-                }
+                }*/
                 console.log(selectedImagesHtml)
                 $('#selected-images').html('<p>Imagens selecionadas:</p>' + selectedImagesHtml);
             }
