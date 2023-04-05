@@ -1,10 +1,10 @@
 .container {
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgba(36, 36, 39, 0.9);
 }
 
 body {
-
+    height: 100vh;
     background: url("./assets/background/dawn background.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -46,7 +46,7 @@ body {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.open>.dropdown-menu {
+.open .dropdown-menu {
     display: block;
     width: inherit !important;
 }
