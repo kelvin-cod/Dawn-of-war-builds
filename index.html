@@ -24,26 +24,23 @@
             <div class="row ">
                 <div class="col-12">
                     <div class="form-group text-white">
-                        <label for="example-multiselect">Selecione as imagens:</label>
+                        <label for="example-multiselect">Select the Heroes:</label>
                         <select id="example-multiselect" multiple="multiple">
 
                         </select>
                     </div>
 
                     <div id="selected-images" class="text-white col-12">
-                        <p>Imagens selecionadas:</p>
+
                     </div>
                 </div>
 
-
-
         </section>
-
-
     </div>
-    </div>
+
 
 </body>
+
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
@@ -73,10 +70,10 @@
 
     $(document).ready(function () {
 
-
         var $select = $('#example-multiselect');
+
         for (var i = 0; i < heroes.length; i++) {
-            $select.append($(`<option >`, {
+            $select.append($(`<option>`, {
                 value: heroes[i].toLowerCase(),
                 text: heroes[i]
             }));
@@ -88,8 +85,8 @@
             nSelectedText: ' imagens selecionadas',
             buttonWidth: '100%',
             enableFiltering: true,
-            filterBehavior:'value',
-            filterPlaceholder:'Pesquisa...',
+            filterBehavior: 'value',
+            filterPlaceholder: 'Search...',
             maxHeight: 500,
             onChange: function (option, checked) {
                 var selectedImages = $('#example-multiselect option:selected');
@@ -97,9 +94,10 @@
 
 
                 selectedImages.each(function () {
-                    selectedImagesHtml += '<img class="rounded images" src="./img/' +
+                    selectedImagesHtml +=
+                        ` <h4 class="text-white text-center">${$(this).text()}</h4> <img class="rounded images" src="./img/` +
                         $(this).text().toLowerCase() + "_1" +
-                        '.png" alt="' + $(this).text() + '"> ';
+                        '.png" alt=""> ';
                 });
                 selectedImages.each(function () {
                     selectedImagesHtml += '<img class="rounded images" src="./img/' +
@@ -115,12 +113,15 @@
                              '.png" alt="' + $(this).text() + '"> ';
                      });
                  }*/
-                console.log(selectedImagesHtml)
-                $('#selected-images').html('<p>Builds:</p>' + selectedImagesHtml);
+
+                $('#selected-images').html(selectedImagesHtml);;
             }
         });
 
     });
+    window.console = {
+        log: function () {}
+    };
 
     //https://kelvin-cod.github.io/Dawn-of-war-builds/img/
 </script>

@@ -23,12 +23,34 @@ body {
     transform: translate3D(0, -1px, 0) scale(1.03);
     /* move up slightly and zoom in */
     box-shadow: 8px 28px 50px rgba(39, 44, 49, .07), 1px 6px 12px rgba(39, 44, 49, .04);
-    transition: all .4s ease;
+    transition: all .7s ease;
     /* zoom in */
     cursor: pointer;
 }
-
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #7b8ab8;
+    background-color: #f0f5fa;
+    background-clip: padding-box;
+    border: 0 solid #bed1e6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    box-shadow: inset 2px 2px 8px rgb(55 94 148 / 30%), inset -3px -2px 5px rgb(255 255 255 / 80%);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 .open>.dropdown-menu {
     display: block;
     width: inherit !important;
+}
+
+.btn{
+    font-size: 20px !important;
+    font-weight: 600 !important;
 }
