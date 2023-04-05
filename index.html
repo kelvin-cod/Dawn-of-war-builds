@@ -17,7 +17,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container" id="container">
         <div class="row pt-5">
             <h2 class="text-center text-white">DAWN OF WAR BUILDS</h2>
         </div>
@@ -118,7 +118,9 @@
                         '.png" alt=""> ';
                 });
                 if (selectedImages.length > 2) {
-                    $(".container").css("height","auto !important")
+                    let el = document.getElementById("container");
+                  //  $(".container").css("height","auto !important");
+                  el.style.height = 'auto !important';
                 }
                 $('#selected-images').html(selectedImagesHtml);;
             }
