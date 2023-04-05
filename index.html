@@ -76,43 +76,54 @@
 
         var $select = $('#example-multiselect');
         for (var i = 0; i < heroes.length; i++) {
-            $select.append($('<option>', {
-                value: i + 1,
+            $select.append($(`<option >`, {
+                value: heroes[i].toLowerCase(),
                 text: heroes[i]
             }));
         }
 
-        $('#example-multiselect').multiselect({
+        $('#example-multiselect ').multiselect({
             nonSelectedText: 'Selecione as imagens',
             allSelectedText: 'Todas as imagens selecionadas',
             nSelectedText: ' imagens selecionadas',
             buttonWidth: '100%',
+            enableFiltering: true,
+            filterBehavior:'value',
+            filterPlaceholder:'Pesquisa...',
             maxHeight: 500,
             onChange: function (option, checked) {
                 var selectedImages = $('#example-multiselect option:selected');
                 var selectedImagesHtml = ''; // $(this).val() + "_" +
 
-               
+
                 selectedImages.each(function () {
                     selectedImagesHtml += '<img class="rounded images" src="./img/' +
                         $(this).text().toLowerCase() + "_1" +
                         '.png" alt="' + $(this).text() + '"> ';
                 });
+                selectedImages.each(function () {
+                    selectedImagesHtml += '<img class="rounded images" src="./img/' +
+                        $(this).text().toLowerCase() + "_2" +
+                        '.png" alt=""> ';
+                });
 
-               /*  for (let index = 1; index < 5; index++) {
-                
-                    selectedImages.each(function () {
-                        selectedImagesHtml += '<img class"rounded image" src="./img/' +
-                            $(this).text().toLowerCase() + "_" + index +
-                            '.png" alt="' + $(this).text() + '"> ';
-                    });
-                }*/
+                /*  for (let index = 1; index < 5; index++) {alt="' + $(this).text() + '"> '
+                 
+                     selectedImages.each(function () {
+                         selectedImagesHtml += '<img class"rounded image" src="./img/' +
+                             $(this).text().toLowerCase() + "_" + index +
+                             '.png" alt="' + $(this).text() + '"> ';
+                     });
+                 }*/
                 console.log(selectedImagesHtml)
-                $('#selected-images').html('<p>Imagens selecionadas:</p>' + selectedImagesHtml);
+                $('#selected-images').html('<p>Builds:</p>' + selectedImagesHtml);
             }
         });
 
     });
+
+    //https://kelvin-cod.github.io/Dawn-of-war-builds/img/
 </script>
+
 
 </html>
