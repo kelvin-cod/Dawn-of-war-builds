@@ -1,12 +1,12 @@
 .container {
-    height: 100vh;
+   height: 100vh;
 
     background-color: rgba(36, 36, 39, 0.9);
 }
 
 body {
 
-    background: url("./img/dawn background.png") no-repeat center center fixed;
+    background: url("./assets/background/dawn background.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -27,6 +27,7 @@ body {
     /* zoom in */
     cursor: pointer;
 }
+
 .form-control {
     display: block;
     width: 100%;
@@ -43,14 +44,15 @@ body {
     appearance: none;
     border-radius: 0.375rem;
     box-shadow: inset 2px 2px 8px rgb(55 94 148 / 30%), inset -3px -2px 5px rgb(255 255 255 / 80%);
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+
 .open>.dropdown-menu {
     display: block;
     width: inherit !important;
 }
 
-.btn{
+.btn {
     font-size: 20px !important;
     font-weight: 600 !important;
 }

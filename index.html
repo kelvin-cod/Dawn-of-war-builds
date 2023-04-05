@@ -17,7 +17,7 @@
 <body>
 
     <div class="container">
-        <div class="row pt-4">
+        <div class="row pt-5">
             <h2 class="text-center text-white">DAWN OF WAR BUILDS</h2>
         </div>
         <section>
@@ -39,6 +39,7 @@
     </div>
 
 
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
@@ -50,30 +51,40 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 <!-- Initialize the plugin: -->
 <script type="text/javascript">
-    var heroes = ["Abaddon", "Alchemist", "Ancient Apparition", "Anti-Mage", "Arc Warden", "Axe", "Bane", "Batrider",
-        "Beastmaster", "Bloodseeker", "Bounty Hunter", "Brewmaster", "Bristleback", "Broodmother",
-        "Centaur Warrunner", "Chaos Knight", "Chen", "Clinkz", "Clockwerk", "Crystal Maiden", "Dark Seer",
-        "Dark Willow", "Dawnbreaker", "Dazzle", "Death Prophet", "Disruptor", "Doom", "Dragon Knight",
-        "Drow Ranger", "Earth Spirit", "Earthshaker", "Elder Titan", "Ember Spirit", "Enchantress", "Enigma",
-        "Faceless Void", "Grimstroke", "Gyrocopter", "Hoodwink", "Huskar", "Invoker", "Io", "Jakiro", "Juggernaut",
-        "Keeper of the Light", "Kunkka", "Legion Commander", "Leshrac", "Lich", "Lifestealer", "Lina", "Lion",
-        "Lone Druid", "Luna", "Lycan", "Magnus", "Marci", "Mars", "Medusa", "Meepo", "Mirana", "Monkey King",
-        "Morphling", "Muerta", "Naga Siren", "Nature's Prophet", "Necrophos", "Night Stalker", "Nyx Assassin",
-        "Ogre Magi", "Omniknight", "Oracle", "Outworld Destroyer", "Pangolier", "Phantom Assassin",
-        "Phantom Lancer", "Phoenix", "Primal Beast", "Puck", "Pudge", "Pugna", "Queen of Pain", "Razor", "Riki",
-        "Rubick", "Sand King", "Shadow Demon", "Shadow Fiend", "Shadow Shaman", "Silencer", "Skywrath Mage",
-        "Slardar", "Slark", "Snapfire", "Sniper", "Spectre", "Spirit Breaker", "Storm Spirit", "Sven", "Techies",
-        "Templar Assassin", "Terrorblade", "Tidehunter", "Timbersaw", "Tinker", "Tiny", "Treant Protector",
-        "Troll Warlord", "Tusk", "Underlord", "Undying", "Ursa", "Vengeful Spirit", "Venomancer", "Viper", "Visage",
-        "Void Spirit", "Warlock", "Weaver", "Windranger", "Winter Wyvern", "Witch Doctor", "Wraith King", "Zeus"
-    ];
-
     $(document).ready(function () {
-
-        var $select = $('#example-multiselect');
+        var heroes = ["Abaddon", "Alchemist", "Ancient Apparition", "Anti-Mage", "Arc Warden", "Axe", "Bane",
+            "Batrider",
+            "Beastmaster", "Bloodseeker", "Bounty Hunter", "Brewmaster", "Bristleback", "Broodmother",
+            "Centaur Warrunner", "Chaos Knight", "Chen", "Clinkz", "Clockwerk", "Crystal Maiden",
+            "Dark Seer",
+            "Dark Willow", "Dawnbreaker", "Dazzle", "Death Prophet", "Disruptor", "Doom", "Dragon Knight",
+            "Drow Ranger", "Earth Spirit", "Earthshaker", "Elder Titan", "Ember Spirit", "Enchantress",
+            "Enigma",
+            "Faceless Void", "Grimstroke", "Gyrocopter", "Hoodwink", "Huskar", "Invoker", "Io", "Jakiro",
+            "Juggernaut",
+            "Keeper of the Light", "Kunkka", "Legion Commander", "Leshrac", "Lich", "Lifestealer", "Lina",
+            "Lion",
+            "Lone Druid", "Luna", "Lycan", "Magnus", "Marci", "Mars", "Medusa", "Meepo", "Mirana",
+            "Monkey King",
+            "Morphling", "Muerta", "Naga Siren", "Nature's Prophet", "Necrophos", "Night Stalker",
+            "Nyx Assassin",
+            "Ogre Magi", "Omniknight", "Oracle", "Outworld Destroyer", "Pangolier", "Phantom Assassin",
+            "Phantom Lancer", "Phoenix", "Primal Beast", "Puck", "Pudge", "Pugna", "Queen of Pain", "Razor",
+            "Riki",
+            "Rubick", "Sand King", "Shadow Demon", "Shadow Fiend", "Shadow Shaman", "Silencer",
+            "Skywrath Mage",
+            "Slardar", "Slark", "Snapfire", "Sniper", "Spectre", "Spirit Breaker", "Storm Spirit", "Sven",
+            "Techies",
+            "Templar Assassin", "Terrorblade", "Tidehunter", "Timbersaw", "Tinker", "Tiny",
+            "Treant Protector",
+            "Troll Warlord", "Tusk", "Underlord", "Undying", "Ursa", "Vengeful Spirit", "Venomancer",
+            "Viper", "Visage",
+            "Void Spirit", "Warlock", "Weaver", "Windranger", "Winter Wyvern", "Witch Doctor",
+            "Wraith King", "Zeus"
+        ];
 
         for (var i = 0; i < heroes.length; i++) {
-            $select.append($(`<option>`, {
+            $('#example-multiselect').append($(`<option>`, {
                 value: heroes[i].toLowerCase(),
                 text: heroes[i]
             }));
@@ -82,12 +93,13 @@
         $('#example-multiselect ').multiselect({
             nonSelectedText: 'Selecione as imagens',
             allSelectedText: 'Todas as imagens selecionadas',
-            nSelectedText: ' imagens selecionadas',
+            nSelectedText: ' Heroes Selected',
             buttonWidth: '100%',
             enableFiltering: true,
             filterBehavior: 'value',
             filterPlaceholder: 'Search...',
             maxHeight: 500,
+            selectedClass: 'active multiselect-selected',
             onChange: function (option, checked) {
                 var selectedImages = $('#example-multiselect option:selected');
                 var selectedImagesHtml = ''; // $(this).val() + "_" +
@@ -95,35 +107,23 @@
 
                 selectedImages.each(function () {
                     selectedImagesHtml +=
-                        ` <h4 class="text-white text-center">${$(this).text()}</h4> <img class="rounded images" src="./img/` +
+                        ` <h4 class="text-white text-center">${$(this).text()}</h4> <img class="rounded images" src="./assets/img/` +
                         $(this).text().toLowerCase() + "_1" +
                         '.png" alt=""> ';
                 });
                 selectedImages.each(function () {
-                    selectedImagesHtml += '<img class="rounded images" src="./img/' +
+                    selectedImagesHtml += '<img class="rounded images" src="./assets/img/' +
                         $(this).text().toLowerCase() + "_2" +
                         '.png" alt=""> ';
                 });
-
-                /*  for (let index = 1; index < 5; index++) {alt="' + $(this).text() + '"> '
-                 
-                     selectedImages.each(function () {
-                         selectedImagesHtml += '<img class"rounded image" src="./img/' +
-                             $(this).text().toLowerCase() + "_" + index +
-                             '.png" alt="' + $(this).text() + '"> ';
-                     });
-                 }*/
-
+                if (selectedImages.length > 2) {
+                    $(".container").css("height","auto !important")
+                }
                 $('#selected-images').html(selectedImagesHtml);;
             }
         });
 
     });
-    window.console = {
-        log: function () {}
-    };
-
-    //https://kelvin-cod.github.io/Dawn-of-war-builds/img/
 </script>
 
 
