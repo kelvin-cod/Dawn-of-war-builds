@@ -1,6 +1,37 @@
-.container {
+.container-main {
     min-height: 100vh;
     background-color: rgba(36, 36, 39, 0.9);
+}
+
+.navbar {
+    margin-bottom: 0px !important;
+}
+
+.qrcode {
+    width: 40px;
+    display: inline-block;
+    position: relative;
+}
+
+.qrcode {
+    width: 100%;
+}
+
+.qrcode:hover::after {
+    visibility: visible
+}
+
+.qrcode::after {
+    background: url("./assets/QR Code.png") no-repeat;
+    background-position: 45% 55%;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    width: 100%
 }
 
 body {
