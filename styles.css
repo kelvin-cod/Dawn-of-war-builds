@@ -21,6 +21,11 @@
     visibility: visible
 }
 
+.contact-form {
+    padding-top: 15%;
+
+}
+
 .qrcode::after {
     background: url("./assets/QR Code.png") no-repeat;
     background-position: 45% 55%;
