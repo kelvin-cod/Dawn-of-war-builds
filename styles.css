@@ -1,57 +1,5 @@
-.container-main {
-    min-height: 100vh;
-    background-color: rgba(36, 36, 39, 0.9);
-}
-
 .navbar {
     margin-bottom: 0px !important;
-}
-
-.qrcode {
-    width: 40px;
-    display: inline-block;
-    position: relative;
-}
-
-.qrcode {
-    width: 100%;
-}
-
-.qrcode:hover::after {
-    visibility: visible
-}
-
-.contact-form {
-    padding-top: 15%;
-
-}
-
-.qrcode::after {
-    background: url("./assets/QR Code.png") no-repeat;
-    background-position: 45% 55%;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    visibility: hidden;
-    width: 100%
-}
-
-body {
-
-    background: url("./assets/background/dawn background.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-}
-
-.images {
-    width: 100%;
-    height: auto;
 }
 
 .images:hover {
@@ -87,7 +35,91 @@ body {
     width: inherit !important;
 }
 
-.btn {
-    font-size: 15px !important;
-    font-weight: 800 !important;
+
+.container-main {
+    min-height: 100vh;
+    background-color: rgba(36, 36, 39, 0.9);
+}
+
+body {
+
+    background: url("./assets/background/dawn background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch
+}
+
+.hero-item {
+    flex: 0 0 calc(5% - 20px);
+    margin: 10px;
+    text-align: center;
+    /*  border: 1px solid #ccc;*/
+}
+
+.hero-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.hero-name {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #e0f7fa;
+}
+
+/* Adicionar estilos para a seleção */
+.hero-item.selecionado {
+    background-color: #396934;
+    border-radius: 5%;
+    width: 120px;
+    border: 1px solid black;
+    /* Altere a cor de fundo conforme desejado */
+}
+
+.hero-name.selecionado {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.title {
+    padding-top: 20px;
+}
+
+.hero-item :hover {
+    transform: translate3D(0, -1px, 0) scale(1.03);
+    /* move up slightly and zoom in */
+    box-shadow: 8px 28px 50px rgba(39, 44, 49, .07), 1px 6px 12px rgba(39, 44, 49, .04);
+    transition: all .7s ease;
+    /* zoom in */
+    cursor: pointer;
+}
+
+.discord {
+    width: 32px;
+    height: auto;
+}
+
+.images {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    padding: 2px 2px 2px 2px;
+}
+
+.images50 {
+    width: 50%;
+    height: auto;
+    padding: 2px 2px 2px 2px;
 }
