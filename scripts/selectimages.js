@@ -1,10 +1,12 @@
 var heroesSelecionados = []; // Array para armazenar os heróis selecionados
-var heroesBase = [];
 var mostrarSomenteSelecionados = false;
 let url = 'https://api.opendota.com/api/heroes'; // url da api
 
 
 var heroesImages = [{
+        heroName: "abaddon",
+        imageURL: "./assets/img/abaddon_1.png"
+    }, {
         heroName: "bloodseeker",
         imageURL: "./assets/img/bloodseeker_1.png"
     },
@@ -219,6 +221,30 @@ var heroesImages = [{
     {
         heroName: "zeus",
         imageURL: "./assets/img/zeus_1.png"
+    },
+    {
+        heroName: "troll warlord",
+        imageURL: "./assets/img/troll_warlord_1.png"
+    },
+    {
+        heroName: "undying",
+        imageURL: "./assets/img/undying_1.png"
+    },
+    {
+        heroName: "chaos knight",
+        imageURL: "./assets/img/chaos knight_1.png"
+    },
+    {
+        heroName: "mars",
+        imageURL: "./assets/img/mars_1.png"
+    },
+    {
+        heroName: "dazzle",
+        imageURL: "./assets/img/dazzle_1.png"
+    },
+    {
+        heroName: "ursa",
+        imageURL: "./assets/img/ursa_1.png"
     }
 ];
 
@@ -378,7 +404,7 @@ $.ajax({
                     link.removeClass('selecionado');
                     // $(link).css("display", 'none');
                     //  ocultarHeroiSelecionado(link);
-                   // verificarEstadoHeroisSelecionados();
+                    // verificarEstadoHeroisSelecionados();
                 } else {
                     heroesSelecionados.push(nomeHeroi);
                     link.addClass('selecionado');
@@ -396,7 +422,7 @@ $.ajax({
             link.append(divWrapper);
 
             links.push(link);
-            heroesBase.push(link)
+
         });
 
         // Ordenar os elementos <a> em ordem alfabética com base no texto
@@ -411,8 +437,6 @@ $.ajax({
         links.forEach(function (link) {
             $('#container').append(link);
         });
-        heroesBase = links;
-
     },
     error: function (xhr, status, error) {
         console.error('Erro na requisição:', error);
@@ -442,8 +466,6 @@ $(document).ready(function () {
     $("#clearSelections").hide();
 
     $('#selected-images').html(selectedImagesHtml);
-
-
 });
 
 
