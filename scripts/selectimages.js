@@ -252,10 +252,10 @@ function limparHeroisSelecionados() {
     heroesSelecionados = []; // Limpa o array de heróis selecionados
     $('.hero-item.selecionado').removeClass(
         'selecionado'); // Remove a classe 'selecionado' dos elementos visuais
-    $('#selectedHeroesImages').empty(); // Limpa as imagens dos heróis selecionados
-
-    toggleSelectedHeroes(); //volta pra tela base
-
+   // $('#selectedHeroesImages').empty(); // Limpa as imagens dos heróis selecionados
+    getHeroes()
+   // toggleSelectedHeroes(); //volta pra tela base
+   
 };
 
 //função para selecionar heroi e chamas as imagens
@@ -323,6 +323,127 @@ function verificarEstadoHeroisSelecionados() {
 }
 
 //get na api de herois
+function getHeroes() {
+    $.ajax({
+        url: url,
+        type: 'GET',
+        success: function (data) {
+            var links = [];
+            // console.log(data)
+    
+            data.forEach(function (hero) {
+                var link = $('<div>', {
+                    id: hero.id,
+                    class: 'hero-item',
+                    hero_name: hero.localized_name.toLowerCase()
+                });
+    
+                var divWrapper = $('<figure>', {
+                    class: 'hero-wrapper'
+                });
+    
+    
+                let hero_regex = hero.localized_name.replace(' ', '_').toLowerCase();
+    
+                if (hero_regex == "anti-mage") {
+                    hero_regex = 'antimage';
+                } else if (hero_regex == "windranger") {
+                    hero_regex = 'windrunner';
+                } else if (hero_regex == "lifestealer") {
+                    hero_regex = 'life_stealer';
+                } else if (hero_regex == "io") {
+                    hero_regex = 'wisp';
+                } else if (hero_regex == "vengeful_spirit") {
+                    hero_regex = 'vengefulspirit';
+                } else if (hero_regex == "keeper_of the light") {
+                    hero_regex = 'keeper_of_the_light';
+                } else if (hero_regex == "timbersaw") {
+                    hero_regex = 'shredder';
+                } else if (hero_regex == "wraith_king") {
+                    hero_regex = 'skeleton_king';
+                } else if (hero_regex == "necrophos") {
+                    hero_regex = 'necrolyte';
+                } else if (hero_regex == "zeus") {
+                    hero_regex = 'zuus';
+                } else if (hero_regex == "doom") {
+                    hero_regex = 'doom_bringer';
+                } else if (hero_regex == "nature's_prophet") {
+                    hero_regex = 'furion';
+                } else if (hero_regex == "shadow_fiend") {
+                    hero_regex = 'nevermore';
+                } else if (hero_regex == "magnus") {
+                    hero_regex = 'magnataur';
+                } else if (hero_regex == "queen_of pain") {
+                    hero_regex = 'queenofpain';
+                } else if (hero_regex == "treant_protector") {
+                    hero_regex = 'treant';
+                } else if (hero_regex == "outworld_destroyer") {
+                    hero_regex = 'obsidian_destroyer';
+                } else if (hero_regex == "clockwerk") {
+                    hero_regex = 'rattletrap';
+                } else if (hero_regex == "centaur_warrunner") {
+                    hero_regex = 'centaur';
+                } else if (hero_regex == "underlord") {
+                    hero_regex = 'abyssal_underlord';
+                }
+                var imgHero = $('<img>', {
+                    src: `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${hero_regex}.png`, // Substitua pela URL da imagem correspondente ao herói
+                    alt: hero.localized_name,
+                    class: 'hero-image'
+                });
+    
+                var nomeHeroiBaixo = $(`<figcaption class="text-white">${hero.localized_name} </figcaption>`);
+    
+                // Adicionar evento de clique para tratar a seleção
+                link.click(function () {
+                    var nomeHeroi = hero.localized_name.toLowerCase();
+    
+                    // Verificar se o herói já está na lista de heróis selecionados
+                    var index = heroesSelecionados.indexOf(nomeHeroi);
+                    if (index !== -1) {
+                        heroesSelecionados.splice(index, 1);
+                        link.removeClass('selecionado');
+                        // $(link).css("display", 'none');
+                        //  ocultarHeroiSelecionado(link);
+                        // verificarEstadoHeroisSelecionados();
+                    } else {
+                        heroesSelecionados.push(nomeHeroi);
+                        link.addClass('selecionado');
+                        $("#ocultar").removeAttr("disabled");
+                        $("#clearSelections").show();
+                    }
+    
+                    // Imprimir os heróis selecionados
+                    console.log('Heróis selecionados:', heroesSelecionados);
+                });
+    
+    
+                divWrapper.append(imgHero);
+                divWrapper.append(nomeHeroiBaixo);
+                link.append(divWrapper);
+    
+                links.push(link);
+    
+            });
+    
+            // Ordenar os elementos <a> em ordem alfabética com base no texto
+            links.sort(function (a, b) {
+                return a.text().localeCompare(b.text());
+            });
+    
+            // Limpar o contêiner antes de adicionar os elementos ordenados
+            $('#container').empty();
+    
+            // Adicionar os elementos <a> ordenados ao contêiner
+            links.forEach(function (link) {
+                $('#container').append(link);
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error('Erro na requisição:', error);
+        }
+    });
+}
 $.ajax({
     url: url,
     type: 'GET',
@@ -337,7 +458,7 @@ $.ajax({
                 hero_name: hero.localized_name.toLowerCase()
             });
 
-            var divWrapper = $('<div>', {
+            var divWrapper = $('<figure>', {
                 class: 'hero-wrapper'
             });
 
@@ -391,7 +512,7 @@ $.ajax({
                 class: 'hero-image'
             });
 
-            var nomeHeroiBaixo = $(`<p class="text-white">${hero.localized_name} </p>`);
+            var nomeHeroiBaixo = $(`<figcaption class="text-white">${hero.localized_name} </figcaption>`);
 
             // Adicionar evento de clique para tratar a seleção
             link.click(function () {
